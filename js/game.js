@@ -33,6 +33,34 @@ function loadProgress() {
   return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
 }
 
+/**
+ * 進捗を全消去する
+ */
+function clearProgress() {
+  localStorage.removeItem(PROGRESS_KEY);
+}
+
+/* ========================================
+   学年設定の保存・読み込み（localStorage）
+   ======================================== */
+const GRADE_KEY = 'kanji_quiz_grade';
+
+/**
+ * 選択された学年フィルターを保存する
+ * @param {number} grade - 0=全部, 1〜6=各学年
+ */
+function saveGradePref(grade) {
+  localStorage.setItem(GRADE_KEY, String(grade));
+}
+
+/**
+ * 保存済みの学年フィルターを読み込む
+ * @returns {number} 0〜6（デフォルト: 0=全部）
+ */
+function loadGradePref() {
+  return parseInt(localStorage.getItem(GRADE_KEY) || '0', 10);
+}
+
 const STAGES = [
   { stageId: 'lv1',   level: 1, file: 'data/stage_lv1.json',   icon: '🏖️', area: '浜辺'     },
   { stageId: 'lv2',   level: 2, file: 'data/stage_lv2.json',   icon: '🐚', area: '浅瀬'     },

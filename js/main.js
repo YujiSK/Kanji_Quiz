@@ -56,6 +56,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const rescues = getRescueMissions(state.results);
     startRescueMode(rescues.map(r => r.question));
   });
+
+  // ステージ選択 → 設定画面を開く
+  document.getElementById('btn-open-settings').addEventListener('click', () => {
+    updateGradeButtons();
+    showScreen('screen-settings');
+  });
+
+  // 設定画面: 学年ボタン
+  document.querySelectorAll('.grade-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      saveGradePref(parseInt(btn.dataset.grade, 10));
+      updateGradeButtons();
+    });
+  });
+
+  // 設定画面: 記録リセット
+  document.getElementById('btn-reset-progress').addEventListener('click', () => {
+    if (confirm('クリア記録をすべてけしますか？')) {
+      clearProgress();
+    }
+  });
+
+  // 設定画面 → ステージ選択へ戻る（決定）
+  document.getElementById('btn-close-settings').addEventListener('click', () => {
+    goToStageSelect();
+  });
 });
 
 /* ========================================

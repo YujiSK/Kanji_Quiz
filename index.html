@@ -29,11 +29,50 @@
       <div class="wave wave2"></div>
     </div>
     <div class="select-content">
-      <h2 class="select-title">🗺️ 海域を選ぼう</h2>
+      <div class="select-header">
+        <h2 class="select-title">🗺️ 海域を選ぼう</h2>
+        <button id="btn-open-settings" class="btn-icon" title="学年設定">⚙️</button>
+      </div>
+      <div id="grade-badge-area" class="grade-badge-area">
+        <!-- 現在の学年フィルターが表示される -->
+      </div>
       <div id="stage-list" class="stage-list">
         <!-- JS で生成 -->
       </div>
       <button id="btn-back-title" class="btn-secondary">← タイトルへ</button>
+    </div>
+  </div>
+
+  <!-- 設定画面 -->
+  <div id="screen-settings" class="screen">
+    <div class="ocean-bg">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+    </div>
+    <div class="settings-content">
+      <h2 class="settings-title">⚙️ 設定</h2>
+
+      <div class="settings-section">
+        <p class="settings-label">📚 学年を選んでください</p>
+        <p class="settings-sub">選んだ学年の海域だけが表示されます</p>
+        <div class="grade-buttons">
+          <button class="grade-btn" data-grade="0">全部</button>
+          <button class="grade-btn" data-grade="1">小1</button>
+          <button class="grade-btn" data-grade="2">小2</button>
+          <button class="grade-btn" data-grade="3">小3</button>
+          <button class="grade-btn" data-grade="4">小4</button>
+          <button class="grade-btn" data-grade="5">小5</button>
+          <button class="grade-btn" data-grade="6">小6</button>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <p class="settings-label">🗑️ きろくをけす</p>
+        <p class="settings-sub">クリア済みのステージがリセットされます</p>
+        <button id="btn-reset-progress" class="btn-danger">記録をリセット</button>
+      </div>
+
+      <button id="btn-close-settings" class="btn-primary">決定 ✓</button>
     </div>
   </div>
 

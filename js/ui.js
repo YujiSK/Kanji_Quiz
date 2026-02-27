@@ -14,11 +14,25 @@ function showScreen(id) {
    ステージ選択画面
    ======================================== */
 function renderStageList(stages, onSelect) {
-  const list = document.getElementById('stage-list');
-  list.innerHTML = '';
-  const progress = loadProgress();
+  const list     = document.getElementById('stage-list');
+  const badgeArea = document.getElementById('grade-badge-area');
+  list.innerHTML  = '';
 
-  stages.forEach(stage => {
+  const progress  = loadProgress();
+  const grade     = loadGradePref();
+
+  // 学年フィルターバッジ表示
+  const GRADE_LABELS = ['全部', '小1', '小2', '小3', '小4', '小5', '小6'];
+  badgeArea.innerHTML = `
+    <span class="current-grade-badge">
+      📚 ${GRADE_LABELS[grade]} の海域を表示中
+    </span>
+  `;
+
+  // 学年でフィルター（0=全部）
+  const filtered = grade === 0 ? stages : stages.filter(s => s.level === grade);
+
+  filtered.forEach(stage => {
     const p = progress[stage.stageId];
     const isCleared = p && p.cleared;
 
@@ -39,6 +53,21 @@ function renderStageList(stages, onSelect) {
     `;
     card.addEventListener('click', () => onSelect(stage.stageId));
     list.appendChild(card);
+  });
+}
+
+/* ========================================
+   設定画面
+   ======================================== */
+
+/**
+ * 設定画面のグレードボタンのアクティブ状態を更新する
+ */
+function updateGradeButtons() {
+  const currentGrade = loadGradePref();
+  document.querySelectorAll('.grade-btn').forEach(btn => {
+    const g = parseInt(btn.dataset.grade, 10);
+    btn.classList.toggle('active', g === currentGrade);
   });
 }
 
