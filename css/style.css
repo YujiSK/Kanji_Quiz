@@ -565,6 +565,34 @@ html, body {
   to { opacity: 1; transform: translateY(0); }
 }
 
+/* 復習チャレンジボタン */
+.btn-rescue {
+  background: linear-gradient(135deg, #ff6d00, #e65100);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 36px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  font-family: var(--font-main);
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 16px rgba(255, 109, 0, 0.5);
+  animation: shimmer 1.5s ease-in-out infinite;
+  transition: transform 0.15s;
+}
+
+.btn-rescue:hover {
+  transform: translateY(-3px);
+}
+
+.btn-rescue.hidden {
+  display: none;
+}
+
 /* ボスバッジ */
 .boss-badge {
   display: inline-block;

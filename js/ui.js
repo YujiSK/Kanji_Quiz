@@ -143,15 +143,19 @@ function markSelectedChoice(value) {
 
 /**
  * ステージクリア画面を描画する
+ * @param {Object}  stageData    - ステージデータ
+ * @param {Array}   results      - { question, isCorrect } の配列
+ * @param {boolean} isRescueMode - 復習チャレンジ中かどうか
  */
-function renderClearScreen(stageData, results) {
+function renderClearScreen(stageData, results, isRescueMode) {
   const { totalCoins, cards } = calcReward(results);
   const { correct, total, accuracy } = calcStats(results);
   const rescues = getRescueMissions(results);
 
   // タイトル
-  document.getElementById('clear-title').textContent =
-    `${stageData.sea_area} クリア！`;
+  document.getElementById('clear-title').textContent = isRescueMode
+    ? '復習チャレンジ クリア！⚓'
+    : `${stageData.sea_area} クリア！`;
 
   // 統計
   const statsEl = document.getElementById('clear-stats');
@@ -183,17 +187,22 @@ function renderClearScreen(stageData, results) {
     </div>
   `;
 
-  // 復習ミッション（ボス問題を間違えた場合）
-  const rescueEl = document.getElementById('rescue-missions');
-  if (rescues.length > 0) {
+  // 復習ミッション表示 & 復習ボタン制御
+  const rescueEl  = document.getElementById('rescue-missions');
+  const rescueBtn = document.getElementById('btn-rescue');
+
+  // 復習モード中はボス失敗が出ても再度の復習ボタンは出さない
+  if (!isRescueMode && rescues.length > 0) {
     rescueEl.classList.remove('hidden');
     rescueEl.innerHTML = `
-      <div class="rescue-title">📖 もう一度チャレンジしよう！</div>
+      <div class="rescue-title">📖 ボス問題をやり直そう！</div>
       ${rescues.map(r => `
         <div class="rescue-item">・${r.question.question}</div>
       `).join('')}
     `;
+    rescueBtn.classList.remove('hidden');
   } else {
     rescueEl.classList.add('hidden');
+    rescueBtn.classList.add('hidden');
   }
 }
