@@ -1,0 +1,116 @@
+{
+  "stage_title": "嵐の海域③（同音＆誤字ハンター）",
+  "grade_level": 5,
+  "difficulty": "Lv5",
+  "sea_area": "嵐の海域③",
+  "questions": [
+    {
+      "id": 1,
+      "grade_level": 5,
+      "difficulty": "Lv5",
+      "sea_area": "嵐の海域③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「台風の（　）が出たので外に出ない。」",
+      "choices": ["警報", "計報", "敬報", "係報"],
+      "answer": "警報",
+      "explanation_short": "危ないので気をつけて、という知らせは「警報」です。",
+      "praise": "嵐の前にナイス判断！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 2,
+      "grade_level": 5,
+      "difficulty": "Lv5",
+      "sea_area": "嵐の海域③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「事故が起きたので、すぐに（　）した。」",
+      "choices": ["連絡", "連落", "練絡", "連楽"],
+      "answer": "連絡",
+      "explanation_short": "知らせを送ることは「連絡」です。",
+      "praise": "救助隊みたいに速い！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 3,
+      "grade_level": 5,
+      "difficulty": "Lv5",
+      "sea_area": "嵐の海域③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「出発の時間を（　）した。」",
+      "choices": ["確認", "確信", "革新", "各認"],
+      "answer": "確認",
+      "explanation_short": "たしかめることは「確認」です。",
+      "praise": "波の合図を見ぬいた！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 4,
+      "grade_level": 5,
+      "difficulty": "Lv5",
+      "sea_area": "嵐の海域③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「夏休みの（　）は40日間だ。」",
+      "choices": ["期間", "気管", "機関", "帰還"],
+      "answer": "期間",
+      "explanation_short": "時間の長さは「期間」です。",
+      "praise": "嵐でも言葉の羅針盤！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 5,
+      "grade_level": 5,
+      "difficulty": "Lv5",
+      "sea_area": "嵐の海域③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「雨が強いので予定を（　）した。」",
+      "choices": ["延期", "演技", "縁起", "遠気"],
+      "answer": "延期",
+      "explanation_short": "予定を後の日にすることは「延期」です。",
+      "praise": "航路変更、完ぺき！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 6,
+      "grade_level": 5,
+      "difficulty": "Lv5",
+      "sea_area": "嵐の海域③",
+      "question_type": "typo_fix",
+      "question": "正しい文はどれ？（「たいふう」の漢字に注意）",
+      "choices": [
+        "台風が近づいているので注意する。",
+        "大風が近づいているので注意する。",
+        "代風が近づいているので注意する。",
+        "題風が近づいているので注意する。"
+      ],
+      "answer": "台風が近づいているので注意する。",
+      "explanation_short": "強い風と雨の「たいふう」は「台風」です。",
+      "praise": "黒雲の正体を見ぬいた！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 7,
+      "grade_level": 5,
+      "difficulty": "Lv5",
+      "sea_area": "嵐の海域③",
+      "question_type": "typo_fix",
+      "question": "【ボス】「海を進む」という意味の「こうかい」はどれ？",
+      "choices": [
+        "海を進む航海に出る。",
+        "動画を公開に出す。",
+        "失敗を後悔してねむれない。",
+        "公海はどこの国のものでもない。"
+      ],
+      "answer": "海を進む航海に出る。",
+      "explanation_short": "海を進む「こうかい」は「航海」です。",
+      "praise": "嵐を切り裂く船長！",
+      "reward": { "coins": 3, "card_rarity": "SR" },
+      "rescue_mission": true
+    }
+  ]
+}
