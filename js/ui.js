@@ -21,12 +21,14 @@ function renderStageList(stages, onSelect) {
   const progress  = loadProgress();
   const grade     = loadGradePref();
 
-  // 学年フィルターバッジ表示
+  // 学年フィルターバッジ + 称号表示
   const GRADE_LABELS = ['全部', '小1', '小2', '小3', '小4', '小5', '小6'];
+  const title = progress.title_current || null;
   badgeArea.innerHTML = `
     <span class="current-grade-badge">
       📚 ${GRADE_LABELS[grade]} の海域を表示中
     </span>
+    ${title ? `<span class="title-badge">🏅 称号：${title}</span>` : ''}
   `;
 
   // 学年でフィルター（0=全部）

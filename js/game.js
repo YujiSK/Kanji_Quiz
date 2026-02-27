@@ -40,6 +40,27 @@ function clearProgress() {
   localStorage.removeItem(PROGRESS_KEY);
 }
 
+/**
+ * バッジ・称号をグローバル進捗に保存する
+ * @param {Object} all - loadProgress() で取得した進捗オブジェクト全体
+ */
+function saveBadges(all) {
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(all));
+}
+
+/**
+ * 現在の称号を算出する（優先順位: deep_sea_clear > rescue_ace > first_clear）
+ * @param {Object} progress - loadProgress() の戻り値
+ * @returns {string|null}
+ */
+function computeTitle(progress) {
+  const b = progress.badges || {};
+  if (b.deep_sea_clear) return '🏛️ 深海神殿の挑戦者';
+  if (b.rescue_ace)     return '🦈 海のレスキュー隊';
+  if (b.first_clear)    return '🌊 はじめての航海者';
+  return null;
+}
+
 /* ========================================
    学年設定の保存・読み込み（localStorage）
    ======================================== */

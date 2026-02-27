@@ -219,6 +219,16 @@ function nextQuestion() {
     if (!state.isRescueMode) {
       const { accuracy } = calcStats(state.results);
       saveProgress(state.currentStageId, accuracy, state.totalCoins);
+
+      // バッジ判定（saveProgress 後に loadProgress して最新オブジェクトに追加）
+      const all = loadProgress();
+      all.badges = all.badges || {};
+      all.badges.first_clear = true;
+      if (state.stageData.grade_level === 6) {
+        all.badges.deep_sea_clear = true;
+      }
+      all.title_current = computeTitle(all);
+      saveBadges(all);
     }
 
     // レスキューモードで全問正解なら+3コインボーナス
@@ -228,6 +238,13 @@ function nextQuestion() {
       if (allCorrect) {
         rescueBonus = 3;
         state.totalCoins += rescueBonus;
+
+        // レスキュー全問正解バッジ
+        const all = loadProgress();
+        all.badges = all.badges || {};
+        all.badges.rescue_ace = true;
+        all.title_current = computeTitle(all);
+        saveBadges(all);
       }
     }
     renderClearScreen(state.stageData, state.results, state.isRescueMode, rescueBonus);
