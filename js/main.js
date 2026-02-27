@@ -4,14 +4,14 @@
 
 // ゲーム状態
 const state = {
-  currentLevel: null,
+  currentStageId: null, // 現在のステージID（例: 'lv1', 'lv2b'）
   stageData: null,
   questionIndex: 0,
   results: [],          // { question, isCorrect }
   totalCoins: 0,
   isAnswering: false,   // 二重回答防止フラグ
-  isRescueMode: false,  // 復習チャレンジ中フラグ
-  rescueQuestions: [],  // 復習対象の question 配列
+  isRescueMode: false,  // レスキューチャレンジ中フラグ
+  rescueQuestions: [],  // レスキュー対象の question 配列
 };
 
 /* ========================================
@@ -39,10 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // クリア画面 → もういちど
   document.getElementById('btn-retry').addEventListener('click', () => {
     if (state.isRescueMode) {
-      // 復習モードのリトライは復習を再スタート
       startRescueMode(state.rescueQuestions);
     } else {
-      startStage(state.currentLevel);
+      startStage(state.currentStageId);
     }
   });
 
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     goToStageSelect();
   });
 
-  // クリア画面 → 復習チャレンジ
+  // クリア画面 → レスキューチャレンジ
   document.getElementById('btn-rescue').addEventListener('click', () => {
     const rescues = getRescueMissions(state.results);
     startRescueMode(rescues.map(r => r.question));
@@ -70,8 +69,8 @@ function goToStageSelect() {
 /* ========================================
    ステージ開始
    ======================================== */
-async function startStage(level) {
-  state.currentLevel = level;
+async function startStage(stageId) {
+  state.currentStageId = stageId;
   state.questionIndex = 0;
   state.results = [];
   state.totalCoins = 0;
@@ -80,7 +79,7 @@ async function startStage(level) {
   state.rescueQuestions = [];
 
   try {
-    state.stageData = await loadStage(level);
+    state.stageData = await loadStage(stageId);
   } catch (e) {
     alert('ステージデータの読み込みに失敗しました。');
     return;
@@ -182,7 +181,7 @@ function nextQuestion() {
     // 通常モードのみ進捗を保存（レスキューは保存しない）
     if (!state.isRescueMode) {
       const { accuracy } = calcStats(state.results);
-      saveProgress(state.currentLevel, accuracy, state.totalCoins);
+      saveProgress(state.currentStageId, accuracy, state.totalCoins);
     }
 
     // レスキューモードで全問正解なら+3コインボーナス

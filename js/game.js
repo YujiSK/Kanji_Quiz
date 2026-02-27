@@ -10,14 +10,14 @@ const PROGRESS_KEY = 'kanji_quiz_progress';
 
 /**
  * ステージのクリア記録を保存する（ベストスコアを上書き）
- * @param {number} level    - 1〜6
+ * @param {string} stageId  - ステージID（例: 'lv1', 'lv2b'）
  * @param {number} accuracy - 正解率（0〜100）
  * @param {number} coins    - 獲得コイン数
  */
-function saveProgress(level, accuracy, coins) {
+function saveProgress(stageId, accuracy, coins) {
   const all = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
-  const prev = all[`lv${level}`] || {};
-  all[`lv${level}`] = {
+  const prev = all[stageId] || {};
+  all[stageId] = {
     cleared: true,
     bestAccuracy: Math.max(prev.bestAccuracy || 0, accuracy),
     bestCoins: Math.max(prev.bestCoins || 0, coins),
@@ -34,12 +34,16 @@ function loadProgress() {
 }
 
 const STAGES = [
-  { level: 1, file: 'data/stage_lv1.json', icon: '🏖️', area: '浜辺' },
-  { level: 2, file: 'data/stage_lv2.json', icon: '🐚', area: '浅瀬' },
-  { level: 3, file: 'data/stage_lv3.json', icon: '🌿', area: '海の森' },
-  { level: 4, file: 'data/stage_lv4.json', icon: '⚓', area: '港町' },
-  { level: 5, file: 'data/stage_lv5.json', icon: '⛈️', area: '嵐の海域' },
-  { level: 6, file: 'data/stage_lv6.json', icon: '🔱', area: '深海神殿' },
+  { stageId: 'lv1',   level: 1, file: 'data/stage_lv1.json',   icon: '🏖️', area: '浜辺'     },
+  { stageId: 'lv2',   level: 2, file: 'data/stage_lv2.json',   icon: '🐚', area: '浅瀬'     },
+  { stageId: 'lv2b',  level: 2, file: 'data/stage_lv2_2.json', icon: '🐚', area: '浅瀬②'   },
+  { stageId: 'lv3',   level: 3, file: 'data/stage_lv3.json',   icon: '🌿', area: '海の森'   },
+  { stageId: 'lv3b',  level: 3, file: 'data/stage_lv3_2.json', icon: '🌿', area: '海の森②' },
+  { stageId: 'lv4',   level: 4, file: 'data/stage_lv4.json',   icon: '⚓', area: '港町'     },
+  { stageId: 'lv4b',  level: 4, file: 'data/stage_lv4_2.json', icon: '⚓', area: '港町②'   },
+  { stageId: 'lv5',   level: 5, file: 'data/stage_lv5.json',   icon: '⛈️', area: '嵐の海域'   },
+  { stageId: 'lv5b',  level: 5, file: 'data/stage_lv5_2.json', icon: '⛈️', area: '嵐の海域②' },
+  { stageId: 'lv6',   level: 6, file: 'data/stage_lv6.json',   icon: '🔱', area: '深海神殿' },
 ];
 
 const QUESTION_TYPE_LABELS = {
@@ -53,12 +57,12 @@ const QUESTION_TYPE_LABELS = {
 
 /**
  * ステージデータをfetchで取得する
- * @param {number} level - 1〜6
+ * @param {string} stageId - ステージID（例: 'lv1', 'lv2b'）
  * @returns {Promise<Object>} ステージデータ
  */
-async function loadStage(level) {
-  const stage = STAGES.find(s => s.level === level);
-  if (!stage) throw new Error(`Invalid level: ${level}`);
+async function loadStage(stageId) {
+  const stage = STAGES.find(s => s.stageId === stageId);
+  if (!stage) throw new Error(`Invalid stageId: ${stageId}`);
   const res = await fetch(stage.file);
   if (!res.ok) throw new Error(`Failed to load ${stage.file}`);
   return res.json();

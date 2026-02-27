@@ -19,7 +19,7 @@ function renderStageList(stages, onSelect) {
   const progress = loadProgress();
 
   stages.forEach(stage => {
-    const p = progress[`lv${stage.level}`];
+    const p = progress[stage.stageId];
     const isCleared = p && p.cleared;
 
     const card = document.createElement('div');
@@ -37,7 +37,7 @@ function renderStageList(stages, onSelect) {
       </div>
       <div class="stage-card-badge${isCleared ? ' cleared' : ''}">Lv${stage.level}</div>
     `;
-    card.addEventListener('click', () => onSelect(stage.level));
+    card.addEventListener('click', () => onSelect(stage.stageId));
     list.appendChild(card);
   });
 }
