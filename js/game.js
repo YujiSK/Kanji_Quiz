@@ -62,7 +62,8 @@ function loadGradePref() {
 }
 
 const STAGES = [
-  { stageId: 'lv1',   level: 1, file: 'data/stage_lv1.json',   icon: '🏖️', area: '浜辺'     },
+  { stageId: 'lv1',   level: 1, file: 'data/stage_lv1.json',   icon: '🏖️', area: '浜辺'       },
+  { stageId: 'lv1b',  level: 1, file: 'data/stage_lv1_2.json', icon: '🏖️', area: '浜辺②'     },
   { stageId: 'lv2',   level: 2, file: 'data/stage_lv2.json',   icon: '🐚', area: '浅瀬'     },
   { stageId: 'lv2b',  level: 2, file: 'data/stage_lv2_2.json', icon: '🐚', area: '浅瀬②'   },
   { stageId: 'lv3',   level: 3, file: 'data/stage_lv3.json',   icon: '🌿', area: '海の森'   },
@@ -71,7 +72,8 @@ const STAGES = [
   { stageId: 'lv4b',  level: 4, file: 'data/stage_lv4_2.json', icon: '⚓', area: '港町②'   },
   { stageId: 'lv5',   level: 5, file: 'data/stage_lv5.json',   icon: '⛈️', area: '嵐の海域'   },
   { stageId: 'lv5b',  level: 5, file: 'data/stage_lv5_2.json', icon: '⛈️', area: '嵐の海域②' },
-  { stageId: 'lv6',   level: 6, file: 'data/stage_lv6.json',   icon: '🔱', area: '深海神殿' },
+  { stageId: 'lv6',   level: 6, file: 'data/stage_lv6.json',   icon: '🔱', area: '深海神殿'   },
+  { stageId: 'lv6b',  level: 6, file: 'data/stage_lv6_2.json', icon: '🔱', area: '深海神殿②' },
 ];
 
 const QUESTION_TYPE_LABELS = {
