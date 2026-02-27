@@ -11,6 +11,25 @@ function showScreen(id) {
 }
 
 /* ========================================
+   称号獲得トースト
+   ======================================== */
+function showTitleToast(title) {
+  const toast = document.createElement('div');
+  toast.className = 'title-toast';
+  toast.textContent = `🏅 新しい称号：${title}`;
+  document.body.appendChild(toast);
+
+  // フェードイン後、2秒表示してフェードアウト
+  requestAnimationFrame(() => {
+    toast.classList.add('visible');
+    setTimeout(() => {
+      toast.classList.remove('visible');
+      toast.addEventListener('transitionend', () => toast.remove(), { once: true });
+    }, 2200);
+  });
+}
+
+/* ========================================
    ステージ選択画面
    ======================================== */
 function renderStageList(stages, onSelect) {

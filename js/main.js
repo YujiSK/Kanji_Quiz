@@ -223,12 +223,16 @@ function nextQuestion() {
       // バッジ判定（saveProgress 後に loadProgress して最新オブジェクトに追加）
       const all = loadProgress();
       all.badges = all.badges || {};
+      const prevTitle = all.title_current || null;
       all.badges.first_clear = true;
       if (state.stageData.grade_level === 6) {
         all.badges.deep_sea_clear = true;
       }
       all.title_current = computeTitle(all);
       saveBadges(all);
+      if (all.title_current && all.title_current !== prevTitle) {
+        showTitleToast(all.title_current);
+      }
     }
 
     // レスキューモードで全問正解なら+3コインボーナス
@@ -242,9 +246,13 @@ function nextQuestion() {
         // レスキュー全問正解バッジ
         const all = loadProgress();
         all.badges = all.badges || {};
+        const prevTitle = all.title_current || null;
         all.badges.rescue_ace = true;
         all.title_current = computeTitle(all);
         saveBadges(all);
+        if (all.title_current && all.title_current !== prevTitle) {
+          showTitleToast(all.title_current);
+        }
       }
     }
     renderClearScreen(state.stageData, state.results, state.isRescueMode, rescueBonus);
