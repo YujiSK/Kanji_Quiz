@@ -64,6 +64,7 @@ function loadGradePref() {
 const STAGES = [
   { stageId: 'lv1',   level: 1, file: 'data/stage_lv1.json',   icon: '🏖️', area: '浜辺'       },
   { stageId: 'lv1b',  level: 1, file: 'data/stage_lv1_2.json', icon: '🏖️', area: '浜辺②'     },
+  { stageId: 'lv1c',  level: 1, file: 'data/stage_lv1_3.json', icon: '🏖️', area: '浜辺③'     },
   { stageId: 'lv2',   level: 2, file: 'data/stage_lv2.json',   icon: '🐚', area: '浅瀬'     },
   { stageId: 'lv2b',  level: 2, file: 'data/stage_lv2_2.json', icon: '🐚', area: '浅瀬②'   },
   { stageId: 'lv2c',  level: 2, file: 'data/stage_lv2_3.json', icon: '🐚', area: '浅瀬③'   },
