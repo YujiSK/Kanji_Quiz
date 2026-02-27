@@ -1,0 +1,110 @@
+{
+  "stage_title": "海の森③（同音コンパスの道）",
+  "grade_level": 3,
+  "difficulty": "Lv3",
+  "sea_area": "海の森③",
+  "questions": [
+    {
+      "id": 1,
+      "grade_level": 3,
+      "difficulty": "Lv3",
+      "sea_area": "海の森③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「ケーキを（　）して、みんなで食べた。」",
+      "choices": ["作る", "作図", "続く"],
+      "answer": "作る",
+      "explanation_short": "食べ物をつくるのは「作る」です。",
+      "praise": "いい潮の流れ！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 2,
+      "grade_level": 3,
+      "difficulty": "Lv3",
+      "sea_area": "海の森③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「算数で図を（　）して考えた。」",
+      "choices": ["作図", "作る", "続く"],
+      "answer": "作図",
+      "explanation_short": "図をかくことは「作図」です。",
+      "praise": "コンパスが光った！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 3,
+      "grade_level": 3,
+      "difficulty": "Lv3",
+      "sea_area": "海の森③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「雨がふっても、練習を（　）。」",
+      "choices": ["続く", "作る", "作図"],
+      "answer": "続く",
+      "explanation_short": "やめずに続けるのは「続く」です。",
+      "praise": "ナイス探検！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 4,
+      "grade_level": 3,
+      "difficulty": "Lv3",
+      "sea_area": "海の森③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「みんなで力を合わせて（　）した。」",
+      "choices": ["協力", "強力", "教力"],
+      "answer": "協力",
+      "explanation_short": "力を合わせることは「協力」です。",
+      "praise": "海のチームワーク！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 5,
+      "grade_level": 3,
+      "difficulty": "Lv3",
+      "sea_area": "海の森③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「この薬は（　）が強いので、少しだけ使う。」",
+      "choices": ["強力", "協力", "教力"],
+      "answer": "強力",
+      "explanation_short": "力がとても強いことは「強力」です。",
+      "praise": "うずしおをぬけた！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 6,
+      "grade_level": 3,
+      "difficulty": "Lv3",
+      "sea_area": "海の森③",
+      "question_type": "typo_fix",
+      "question": "正しい文はどれ？（「およぐ」の漢字に注意）",
+      "choices": [
+        "海で泳ぐのが好きだ。",
+        "海で永ぐのが好きだ。",
+        "海で英ぐのが好きだ。"
+      ],
+      "answer": "海で泳ぐのが好きだ。",
+      "explanation_short": "水の中を進むのは「泳ぐ」です。",
+      "praise": "海の文字レーダー作動！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 7,
+      "grade_level": 3,
+      "difficulty": "Lv3",
+      "sea_area": "海の森③",
+      "question_type": "context",
+      "question": "【ボス】文に合う言葉は？「道がわからないので、地図で（　）した。」",
+      "choices": ["確認", "各認", "角認"],
+      "answer": "確認",
+      "explanation_short": "たしかめることは「確認」です。",
+      "praise": "海の森③クリア！同音コンパス達人！",
+      "reward": { "coins": 3, "card_rarity": "SR" },
+      "rescue_mission": true
+    }
+  ]
+}
