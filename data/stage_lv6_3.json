@@ -1,0 +1,111 @@
+{
+  "stage_title": "深海神殿③（同音ハンターの試練）",
+  "grade_level": 6,
+  "difficulty": "Lv6",
+  "sea_area": "深海神殿③",
+  "questions": [
+    {
+      "id": 1,
+      "grade_level": 6,
+      "difficulty": "Lv6",
+      "sea_area": "深海神殿③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「けがをしないように安全を（　）する。」",
+      "choices": ["保障", "補償", "保証", "保償"],
+      "answer": "保障",
+      "explanation_short": "「保障」は安全や生活などを守ることです。",
+      "praise": "深海でも聞き分け完ぺき！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 2,
+      "grade_level": 6,
+      "difficulty": "Lv6",
+      "sea_area": "深海神殿③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「こわれた分の損害を（　）する。」",
+      "choices": ["保障", "補償", "保証", "保償"],
+      "answer": "補償",
+      "explanation_short": "「補償」は損害をお金などでつぐなうことです。",
+      "praise": "海の校正者みたいだ！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 3,
+      "grade_level": 6,
+      "difficulty": "Lv6",
+      "sea_area": "深海神殿③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「努力して学力を（　）させる。」",
+      "choices": ["向上", "工場", "校章", "交渉"],
+      "answer": "向上",
+      "explanation_short": "よくなることは「向上」です。",
+      "praise": "潮の流れが上がってる！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 4,
+      "grade_level": 6,
+      "difficulty": "Lv6",
+      "sea_area": "深海神殿③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「車を作る（　）で働く。」",
+      "choices": ["工場", "向上", "公情", "校章"],
+      "answer": "工場",
+      "explanation_short": "物を作る場所は「工場」です。",
+      "praise": "深海メーター安定！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 5,
+      "grade_level": 6,
+      "difficulty": "Lv6",
+      "sea_area": "深海神殿③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「事故のあと、会社と金額を（　）した。」",
+      "choices": ["交渉", "校章", "向上", "工場"],
+      "answer": "交渉",
+      "explanation_short": "話し合って決めることは「交渉」です。",
+      "praise": "深海の交渉人！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 6,
+      "grade_level": 6,
+      "difficulty": "Lv6",
+      "sea_area": "深海神殿③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「学校の（　）が入った旗がかざられている。」",
+      "choices": ["校章", "交渉", "工場", "向上"],
+      "answer": "校章",
+      "explanation_short": "学校のマークは「校章」です。",
+      "praise": "海の文字レーダー作動！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 7,
+      "grade_level": 6,
+      "difficulty": "Lv6",
+      "sea_area": "深海神殿③",
+      "question_type": "typo_fix",
+      "question": "【ボス】正しい文はどれ？（「こうかい」の漢字に注意）",
+      "choices": [
+        "初めての航海はとても緊張した。",
+        "初めての公開はとても緊張した。",
+        "初めての後悔はとても緊張した。",
+        "初めての公海はとても緊張した。"
+      ],
+      "answer": "初めての航海はとても緊張した。",
+      "explanation_short": "海を進む「こうかい」は「航海」です。",
+      "praise": "同音の魔物を倒した！深海王者！",
+      "reward": { "coins": 3, "card_rarity": "SR" },
+      "rescue_mission": true
+    }
+  ]
+}
