@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>海の冒険×漢字クイズ</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- タイトル画面 -->
+  <div id="screen-title" class="screen active">
+    <div class="ocean-bg">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+    </div>
+    <div class="title-content">
+      <div class="title-icon">🐚</div>
+      <h1 class="title-text">海の冒険<br><span>漢字クイズ</span></h1>
+      <p class="title-sub">宝箱をひらいて、漢字カードをあつめよう！</p>
+      <button id="btn-start" class="btn-primary">冒険をはじめる ⚓</button>
+    </div>
+  </div>
+
+  <!-- ステージ選択画面 -->
+  <div id="screen-select" class="screen">
+    <div class="ocean-bg">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+    </div>
+    <div class="select-content">
+      <h2 class="select-title">🗺️ 海域を選ぼう</h2>
+      <div id="stage-list" class="stage-list">
+        <!-- JS で生成 -->
+      </div>
+      <button id="btn-back-title" class="btn-secondary">← タイトルへ</button>
+    </div>
+  </div>
+
+  <!-- 問題画面 -->
+  <div id="screen-quiz" class="screen">
+    <div class="ocean-bg dark">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+    </div>
+    <div class="quiz-content">
+      <!-- ヘッダー -->
+      <div class="quiz-header">
+        <span id="quiz-area-label" class="area-label"></span>
+        <span id="quiz-progress" class="progress-label"></span>
+        <span id="quiz-coins" class="coins-label">🪙 0</span>
+      </div>
+
+      <!-- 問題カード -->
+      <div id="question-card" class="question-card">
+        <div id="question-type-badge" class="type-badge"></div>
+        <p id="question-text" class="question-text"></p>
+      </div>
+
+      <!-- 選択肢 -->
+      <div id="choices-area" class="choices-area">
+        <!-- JS で生成 -->
+      </div>
+
+      <!-- フィードバックパネル -->
+      <div id="feedback-panel" class="feedback-panel hidden">
+        <div id="feedback-icon" class="feedback-icon"></div>
+        <p id="feedback-praise" class="feedback-praise"></p>
+        <p id="feedback-explanation" class="feedback-explanation"></p>
+        <div id="reward-display" class="reward-display"></div>
+        <button id="btn-next" class="btn-primary">つぎへ →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ステージクリア画面 -->
+  <div id="screen-clear" class="screen">
+    <div class="ocean-bg">
+      <div class="wave wave1"></div>
+      <div class="wave wave2"></div>
+    </div>
+    <div class="clear-content">
+      <div class="clear-icon">🏆</div>
+      <h2 id="clear-title" class="clear-title"></h2>
+      <div id="clear-stats" class="clear-stats"></div>
+      <div id="rescue-missions" class="rescue-missions hidden"></div>
+      <div class="clear-buttons">
+        <button id="btn-retry" class="btn-secondary">もういちど</button>
+        <button id="btn-stage-select" class="btn-primary">海域えらびへ 🗺️</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
