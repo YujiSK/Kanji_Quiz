@@ -76,6 +76,20 @@ function getRescueMissions(results) {
 }
 
 /**
+ * 配列をフィッシャー–イェーツ法でシャッフルして新しい配列を返す
+ * @param {Array} arr
+ * @returns {Array}
+ */
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+/**
  * 正解数・スコアを集計する
  * @param {Array} results
  * @returns {{ correct: number, total: number, accuracy: number }}

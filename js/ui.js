@@ -145,23 +145,40 @@ function markSelectedChoice(value) {
  * ステージクリア画面を描画する
  * @param {Object}  stageData    - ステージデータ
  * @param {Array}   results      - { question, isCorrect } の配列
- * @param {boolean} isRescueMode - 復習チャレンジ中かどうか
+ * @param {boolean} isRescueMode - レスキューチャレンジ中かどうか
+ * @param {number}  rescueBonus  - レスキュー全問正解ボーナスコイン（0のとき非表示）
  */
-function renderClearScreen(stageData, results, isRescueMode) {
+function renderClearScreen(stageData, results, isRescueMode, rescueBonus = 0) {
   const { totalCoins, cards } = calcReward(results);
   const { correct, total, accuracy } = calcStats(results);
   const rescues = getRescueMissions(results);
 
-  // タイトル
-  document.getElementById('clear-title').textContent = isRescueMode
-    ? '復習チャレンジ クリア！⚓'
-    : `${stageData.sea_area} クリア！`;
+  // タイトル・クリアアイコン
+  const clearIcon = document.querySelector('.clear-icon');
+  if (isRescueMode) {
+    const allRescued = results.every(r => r.isCorrect);
+    clearIcon.textContent = allRescued ? '🦈' : '🆘';
+    document.getElementById('clear-title').textContent = allRescued
+      ? '海のレスキュー隊 認定！'
+      : 'レスキュー完了！⚓';
+  } else {
+    clearIcon.textContent = '🏆';
+    document.getElementById('clear-title').textContent = `${stageData.sea_area} クリア！`;
+  }
 
   // 統計
   const statsEl = document.getElementById('clear-stats');
   const srCount = cards.filter(c => c.rarity === 'SR').length;
   const rCount  = cards.filter(c => c.rarity === 'R').length;
   const nCount  = cards.filter(c => c.rarity === 'N').length;
+
+  // レスキューボーナス行（全問正解時のみ）
+  const bonusRow = rescueBonus > 0
+    ? `<div class="clear-stat-row">
+        <span>🦈 レスキューボーナス</span>
+        <span class="clear-stat-value">🪙 +${rescueBonus}</span>
+       </div>`
+    : '';
 
   statsEl.innerHTML = `
     <div class="clear-stat-row">
@@ -176,6 +193,7 @@ function renderClearScreen(stageData, results, isRescueMode) {
       <span>獲得コイン</span>
       <span class="clear-stat-value">🪙 ${totalCoins}</span>
     </div>
+    ${bonusRow}
     <div class="clear-stat-row">
       <span>ゲットしたカード</span>
       <span class="clear-stat-value">
@@ -187,15 +205,15 @@ function renderClearScreen(stageData, results, isRescueMode) {
     </div>
   `;
 
-  // 復習ミッション表示 & 復習ボタン制御
+  // レスキュー対象表示 & レスキューボタン制御
   const rescueEl  = document.getElementById('rescue-missions');
   const rescueBtn = document.getElementById('btn-rescue');
 
-  // 復習モード中はボス失敗が出ても再度の復習ボタンは出さない
+  // レスキューモード中はボス失敗が出ても再度のレスキューボタンは出さない
   if (!isRescueMode && rescues.length > 0) {
     rescueEl.classList.remove('hidden');
     rescueEl.innerHTML = `
-      <div class="rescue-title">📖 ボス問題をやり直そう！</div>
+      <div class="rescue-title">🆘 レスキュー対象の問題：</div>
       ${rescues.map(r => `
         <div class="rescue-item">・${r.question.question}</div>
       `).join('')}

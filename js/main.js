@@ -83,13 +83,19 @@ async function startStage(level) {
 }
 
 /* ========================================
-   復習チャレンジ開始
+   レスキューチャレンジ開始
    ======================================== */
 function startRescueMode(questions) {
   if (questions.length === 0) return;
 
+  // 選択肢をシャッフルして丸暗記クリックを防ぐ
+  const shuffled = questions.map(q => ({
+    ...q,
+    choices: shuffleArray(q.choices),
+  }));
+
   state.isRescueMode = true;
-  state.rescueQuestions = questions;
+  state.rescueQuestions = questions; // シャッフル前を保存（リトライ用）
   state.questionIndex = 0;
   state.results = [];
   state.totalCoins = 0;
@@ -98,9 +104,9 @@ function startRescueMode(questions) {
   // stageData の questions だけ差し替えて既存フローを再利用
   state.stageData = {
     ...state.stageData,
-    stage_title: '復習チャレンジ',
-    sea_area: '復習チャレンジ',
-    questions: questions,
+    stage_title: 'レスキューチャレンジ',
+    sea_area: '🆘 レスキュー海域',
+    questions: shuffled,
   };
 
   showScreen('screen-quiz');
@@ -165,7 +171,16 @@ function nextQuestion() {
 
   if (state.questionIndex >= total) {
     // 全問終了 → クリア画面
-    renderClearScreen(state.stageData, state.results, state.isRescueMode);
+    // レスキューモードで全問正解なら+3コインボーナス
+    let rescueBonus = 0;
+    if (state.isRescueMode) {
+      const allCorrect = state.results.every(r => r.isCorrect);
+      if (allCorrect) {
+        rescueBonus = 3;
+        state.totalCoins += rescueBonus;
+      }
+    }
+    renderClearScreen(state.stageData, state.results, state.isRescueMode, rescueBonus);
     showScreen('screen-clear');
   } else {
     showQuestion();
