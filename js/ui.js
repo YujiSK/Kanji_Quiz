@@ -32,7 +32,19 @@ function renderStageList(stages, onSelect) {
   // 学年でフィルター（0=全部）
   const filtered = grade === 0 ? stages : stages.filter(s => s.level === grade);
 
+  const GRADE_ICONS = ['', '🏖️', '🐚', '🌿', '⚓', '⛈️', '🔱'];
+  let currentLevel = null;
+
   filtered.forEach(stage => {
+    // 全部表示のときのみ学年グループヘッダーを挿入
+    if (grade === 0 && stage.level !== currentLevel) {
+      currentLevel = stage.level;
+      const header = document.createElement('div');
+      header.className = 'stage-group-header';
+      header.textContent = `${GRADE_ICONS[stage.level]} 小学${stage.level}年生`;
+      list.appendChild(header);
+    }
+
     const p = progress[stage.stageId];
     const isCleared = p && p.cleared;
 
