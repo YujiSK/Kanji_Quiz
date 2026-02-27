@@ -254,6 +254,31 @@ html, body {
   border: 1px solid var(--gold);
 }
 
+/* クリア済みステージカード */
+.stage-card.cleared {
+  border-color: var(--correct);
+  background: rgba(0, 200, 83, 0.12);
+}
+
+.stage-card.cleared:hover {
+  border-color: var(--correct);
+  background: rgba(0, 200, 83, 0.22);
+}
+
+.stage-card-badge.cleared {
+  background: rgba(0, 200, 83, 0.2);
+  color: var(--correct);
+  border-color: var(--correct);
+}
+
+.clear-mark {
+  display: inline-block;
+  color: var(--correct);
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+
 /* ========================================
    クイズ画面
    ======================================== */

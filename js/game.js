@@ -3,6 +3,36 @@
  * ステージデータの読み込み・正誤判定・スコア計算
  */
 
+/* ========================================
+   進捗の保存・読み込み（localStorage）
+   ======================================== */
+const PROGRESS_KEY = 'kanji_quiz_progress';
+
+/**
+ * ステージのクリア記録を保存する（ベストスコアを上書き）
+ * @param {number} level    - 1〜6
+ * @param {number} accuracy - 正解率（0〜100）
+ * @param {number} coins    - 獲得コイン数
+ */
+function saveProgress(level, accuracy, coins) {
+  const all = JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
+  const prev = all[`lv${level}`] || {};
+  all[`lv${level}`] = {
+    cleared: true,
+    bestAccuracy: Math.max(prev.bestAccuracy || 0, accuracy),
+    bestCoins: Math.max(prev.bestCoins || 0, coins),
+  };
+  localStorage.setItem(PROGRESS_KEY, JSON.stringify(all));
+}
+
+/**
+ * 全ステージの進捗を読み込む
+ * @returns {Object} { lv1: { cleared, bestAccuracy, bestCoins }, ... }
+ */
+function loadProgress() {
+  return JSON.parse(localStorage.getItem(PROGRESS_KEY) || '{}');
+}
+
 const STAGES = [
   { level: 1, file: 'data/stage_lv1.json', icon: '🏖️', area: '浜辺' },
   { level: 2, file: 'data/stage_lv2.json', icon: '🐚', area: '浅瀬' },

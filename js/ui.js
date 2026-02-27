@@ -16,17 +16,26 @@ function showScreen(id) {
 function renderStageList(stages, onSelect) {
   const list = document.getElementById('stage-list');
   list.innerHTML = '';
+  const progress = loadProgress();
 
   stages.forEach(stage => {
+    const p = progress[`lv${stage.level}`];
+    const isCleared = p && p.cleared;
+
     const card = document.createElement('div');
-    card.className = 'stage-card';
+    card.className = `stage-card${isCleared ? ' cleared' : ''}`;
+
+    const clearInfo = isCleared
+      ? `<span class="clear-mark">✅ クリア済み ・ 最高 ${p.bestAccuracy}%</span>`
+      : '';
+
     card.innerHTML = `
       <div class="stage-card-icon">${stage.icon}</div>
       <div class="stage-card-info">
         <div class="stage-card-title">${stage.area}</div>
-        <div class="stage-card-meta">小学${stage.level}年生レベル・7問</div>
+        <div class="stage-card-meta">小学${stage.level}年生レベル・7問 ${clearInfo}</div>
       </div>
-      <div class="stage-card-badge">Lv${stage.level}</div>
+      <div class="stage-card-badge${isCleared ? ' cleared' : ''}">Lv${stage.level}</div>
     `;
     card.addEventListener('click', () => onSelect(stage.level));
     list.appendChild(card);

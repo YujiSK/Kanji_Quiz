@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // タイトル → ステージ選択
   document.getElementById('btn-start').addEventListener('click', () => {
-    showScreen('screen-select');
+    goToStageSelect();
   });
 
   // ステージ選択 → タイトルへ戻る
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // クリア画面 → ステージ選択
   document.getElementById('btn-stage-select').addEventListener('click', () => {
     state.isRescueMode = false;
-    showScreen('screen-select');
+    goToStageSelect();
   });
 
   // クリア画面 → 復習チャレンジ
@@ -58,6 +58,14 @@ document.addEventListener('DOMContentLoaded', () => {
     startRescueMode(rescues.map(r => r.question));
   });
 });
+
+/* ========================================
+   ステージ選択画面へ（進捗を再描画してから表示）
+   ======================================== */
+function goToStageSelect() {
+  renderStageList(STAGES, startStage);
+  showScreen('screen-select');
+}
 
 /* ========================================
    ステージ開始
@@ -171,6 +179,12 @@ function nextQuestion() {
 
   if (state.questionIndex >= total) {
     // 全問終了 → クリア画面
+    // 通常モードのみ進捗を保存（レスキューは保存しない）
+    if (!state.isRescueMode) {
+      const { accuracy } = calcStats(state.results);
+      saveProgress(state.currentLevel, accuracy, state.totalCoins);
+    }
+
     // レスキューモードで全問正解なら+3コインボーナス
     let rescueBonus = 0;
     if (state.isRescueMode) {
