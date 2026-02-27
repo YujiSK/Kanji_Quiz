@@ -70,6 +70,7 @@ const STAGES = [
   { stageId: 'lv3b',  level: 3, file: 'data/stage_lv3_2.json', icon: '🌿', area: '海の森②' },
   { stageId: 'lv4',   level: 4, file: 'data/stage_lv4.json',   icon: '⚓', area: '港町'     },
   { stageId: 'lv4b',  level: 4, file: 'data/stage_lv4_2.json', icon: '⚓', area: '港町②'   },
+  { stageId: 'lv4c',  level: 4, file: 'data/stage_lv4_3.json', icon: '⚓', area: '港町③'   },
   { stageId: 'lv5',   level: 5, file: 'data/stage_lv5.json',   icon: '⛈️', area: '嵐の海域'   },
   { stageId: 'lv5b',  level: 5, file: 'data/stage_lv5_2.json', icon: '⛈️', area: '嵐の海域②' },
   { stageId: 'lv5c',  level: 5, file: 'data/stage_lv5_3.json', icon: '⛈️', area: '嵐の海域③' },

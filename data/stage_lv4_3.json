@@ -1,0 +1,110 @@
+{
+  "stage_title": "港町③（ことばの市と同音クイズ）",
+  "grade_level": 4,
+  "difficulty": "Lv4",
+  "sea_area": "港町③",
+  "questions": [
+    {
+      "id": 1,
+      "grade_level": 4,
+      "difficulty": "Lv4",
+      "sea_area": "港町③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「友だちを先生に（　）した。」",
+      "choices": ["紹介", "商会", "小海"],
+      "answer": "紹介",
+      "explanation_short": "人を知らせることは「紹介」です。",
+      "praise": "港の案内人みたいだ！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 2,
+      "grade_level": 4,
+      "difficulty": "Lv4",
+      "sea_area": "港町③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「港で魚を売る（　）を始めた。」",
+      "choices": ["商売", "障害", "勝敗"],
+      "answer": "商売",
+      "explanation_short": "物を売ったり買ったりする仕事は「商売」です。",
+      "praise": "市場の達人！",
+      "reward": { "coins": 1, "card_rarity": "N" },
+      "rescue_mission": false
+    },
+    {
+      "id": 3,
+      "grade_level": 4,
+      "difficulty": "Lv4",
+      "sea_area": "港町③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「むずかしい問題を（　）した。」",
+      "choices": ["解決", "会計", "快晴"],
+      "answer": "解決",
+      "explanation_short": "問題をうまく終わらせることは「解決」です。",
+      "praise": "港町の名探偵！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 4,
+      "grade_level": 4,
+      "difficulty": "Lv4",
+      "sea_area": "港町③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「お店でお金の（　）をした。」",
+      "choices": ["会計", "解決", "海底"],
+      "answer": "会計",
+      "explanation_short": "お金をはらうことは「会計」です。",
+      "praise": "おつりもバッチリ！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 5,
+      "grade_level": 4,
+      "difficulty": "Lv4",
+      "sea_area": "港町③",
+      "question_type": "context",
+      "question": "文に合う言葉は？「明日は天気がよくて（　）だ。」",
+      "choices": ["快晴", "会計", "海底"],
+      "answer": "快晴",
+      "explanation_short": "空がよく晴れていることは「快晴」です。",
+      "praise": "青空のようにスッキリ！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 6,
+      "grade_level": 4,
+      "difficulty": "Lv4",
+      "sea_area": "港町③",
+      "question_type": "typo_fix",
+      "question": "正しい文はどれ？（「しゅっこう」の漢字に注意）",
+      "choices": [
+        "船が出港して、海へ出た。",
+        "船が出校して、海へ出た。",
+        "船が出行して、海へ出た。"
+      ],
+      "answer": "船が出港して、海へ出た。",
+      "explanation_short": "港から船が出ることは「出港」です。",
+      "praise": "港の合図が聞こえた！",
+      "reward": { "coins": 2, "card_rarity": "R" },
+      "rescue_mission": false
+    },
+    {
+      "id": 7,
+      "grade_level": 4,
+      "difficulty": "Lv4",
+      "sea_area": "港町③",
+      "question_type": "context",
+      "question": "【ボス】文に合う言葉は？「大事なことを忘れないように（　）する。」",
+      "choices": ["記録", "気力", "起立"],
+      "answer": "記録",
+      "explanation_short": "書いて残すことは「記録」です。",
+      "praise": "港町③クリア！言葉の船長！",
+      "reward": { "coins": 3, "card_rarity": "SR" },
+      "rescue_mission": true
+    }
+  ]
+}
