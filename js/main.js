@@ -75,12 +75,23 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-reset-progress').addEventListener('click', () => {
     if (confirm('クリア記録をすべてけしますか？')) {
       clearProgress();
+      saveGradePref(0);          // 学年フィルターも全部に戻す
+      updateGradeButtons();
+      renderStageList(STAGES, startStage); // バッジ・カードを即再描画
     }
   });
 
   // 設定画面 → ステージ選択へ戻る（決定）
   document.getElementById('btn-close-settings').addEventListener('click', () => {
     goToStageSelect();
+  });
+
+  // キーボード操作: Enter → 決定、Escape → 設定画面を閉じる
+  document.addEventListener('keydown', (e) => {
+    const settingsActive = document.getElementById('screen-settings').classList.contains('active');
+    if (!settingsActive) return;
+    if (e.key === 'Enter') goToStageSelect();
+    if (e.key === 'Escape') goToStageSelect();
   });
 });
 
